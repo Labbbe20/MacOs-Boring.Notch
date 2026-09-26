@@ -2,11 +2,6 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches:
-      - main
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -23,8 +18,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  pages-disabled:
+    if: vars.ENABLE_PAGES_DEPLOY != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pages deploy is disabled
+        run: echo "Set repository variable ENABLE_PAGES_DEPLOY=true after enabling GitHub Pages with GitHub Actions."
+
   # Single deploy job since we're just deploying
   deploy:
+    if: vars.ENABLE_PAGES_DEPLOY == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

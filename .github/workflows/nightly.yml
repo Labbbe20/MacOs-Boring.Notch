@@ -1,9 +1,6 @@
 name: Nightly Branch Builds
 
 on:
-  # Scheduled runs only start once this workflow exists on the default branch.
-  schedule:
-    - cron: "0 3 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -16,7 +13,7 @@ permissions:
 
 env:
   PROJECT_NAME: boringNotch
-  NIGHTLY_BRANCH: dev
+  NIGHTLY_BRANCH: ${{ vars.NIGHTLY_BRANCH || 'main' }}
   TAG: nightly
   ASSET_NAME: boringNotch-nightly.dmg
   TITLE: Latest Nightly
@@ -26,8 +23,17 @@ env:
     unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!
 
 jobs:
+  nightly-disabled:
+    name: Nightly disabled
+    if: vars.ENABLE_NIGHTLY != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nightly publishing is disabled
+        run: echo "Set repository variable ENABLE_NIGHTLY=true when the signing and release secrets are configured."
+
   prepare:
     name: Prepare nightly metadata
+    if: vars.ENABLE_NIGHTLY == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -104,6 +110,7 @@ jobs:
   build:
     name: Build nightly DMG
     needs: prepare
+    if: vars.ENABLE_NIGHTLY == 'true'
     permissions:
       contents: read
     uses: ./.github/workflows/build_reusable.yml
@@ -121,6 +128,7 @@ jobs:
   publish:
     name: Publish nightly channel
     needs: [prepare, build]
+    if: vars.ENABLE_NIGHTLY == 'true'
     runs-on: macos-latest
     permissions:
       contents: write

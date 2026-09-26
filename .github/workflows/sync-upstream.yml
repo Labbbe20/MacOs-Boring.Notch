@@ -67,12 +67,25 @@ jobs:
           git fetch --prune upstream "+refs/heads/${UPSTREAM_BRANCH}:refs/remotes/upstream/${UPSTREAM_BRANCH}"
 
           upstream_head="$(git rev-parse "refs/remotes/upstream/${UPSTREAM_BRANCH}")"
-          source_changed=true
-          if git merge-base --is-ancestor "$upstream_head" HEAD; then
-            source_changed=false
-          fi
+          before_sha="$(git rev-parse HEAD)"
+          patch_file="$RUNNER_TEMP/upstream-source.patch"
+          source_changed=false
 
-          git merge --no-edit "refs/remotes/upstream/${UPSTREAM_BRANCH}"
+          # Keep workflow files fork-local. The default GITHUB_TOKEN is not
+          # allowed to push commits that create or update .github/workflows.
+          git diff --binary "$before_sha" "$upstream_head" -- . \
+            ':(exclude).github/workflows/**' \
+            ':(exclude).github/upstream-sync/**' \
+            > "$patch_file"
+
+          if [ -s "$patch_file" ]; then
+            git apply --index "$patch_file"
+            if ! git diff --cached --quiet; then
+              source_changed=true
+            fi
+          else
+            echo "No upstream source changes outside fork-managed workflow files."
+          fi
 
           mkdir -p "$(dirname "$KEEPALIVE_MARKER")"
           now_iso="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
@@ -98,9 +111,18 @@ jobs:
               echo "This helps keep scheduled runs active in quiet public forks."
             } > "$KEEPALIVE_MARKER"
             git add "$KEEPALIVE_MARKER"
-            git commit -m "Keep upstream mirror schedule active" || true
           else
             echo "Keepalive marker is still fresh."
+          fi
+
+          if ! git diff --cached --quiet; then
+            if [ "$source_changed" = "true" ]; then
+              git commit -m "Sync upstream source to ${upstream_head::7}"
+            else
+              git commit -m "Keep upstream mirror schedule active"
+            fi
+          else
+            echo "No local changes to commit."
           fi
 
           synced_sha="$(git rev-parse HEAD)"
