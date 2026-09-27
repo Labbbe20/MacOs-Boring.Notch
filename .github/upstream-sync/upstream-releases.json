@@ -2,6 +2,26 @@
   "upstream_repository": "TheBoredTeam/boring.notch",
   "releases": [
     {
+      "tag_name": "nightly",
+      "name": "Latest Nightly",
+      "body": "Automated nightly build for dev. Commit: 5b90b23\n⚠️ This is an automated build of the latest development source. It may be unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!",
+      "draft": false,
+      "prerelease": true,
+      "created_at": "2026-09-26T21:14:40Z",
+      "updated_at": "2026-09-27T03:26:05Z",
+      "published_at": "2026-09-24T03:39:25Z",
+      "assets": [
+        {
+          "id": 592039135,
+          "name": "boringNotch-nightly.dmg",
+          "size": 10642776,
+          "content_type": "application/x-apple-diskimage",
+          "updated_at": "2026-09-27T03:26:05Z",
+          "digest": "sha256:8766025f368d8fcaaa11603ccfeb03aebebf3a025fef2c10745cb63f86e2ee5d"
+        }
+      ]
+    },
+    {
       "tag_name": "v2.8-rc.1",
       "name": "v2.8-rc.1 - Dapper Crab 🎩🦀",
       "body": "<h2>🛠️ Fixes &amp; Improvements</h2>\r\n<ul>\r\n    <li>Fixed performance issues causing high CPU utilization for some users — @DavideSirico and @Alexander5015</li>\r\n    <li>Fixed mirror sizing and alignment</li>\r\n    <li>Fixed UI bugs with notifications</li>\r\n    <li>Fixed Audio output selector hover broken and improved design </li>\r\n    <li>Renamed boringNotch to Boring Notch</li>\r\n    <li>Updated dependencies used by the project.</li>\r\n</ul>\r\n\r\n<hr>\r\n<h2>👋 New Contributors</h2>\r\n<p>@DavideSirico</p>\r\n\r\n<p>Thank you to everyone who contributed code, translations, testing, bug reports, and feedback to this release!</p>\r\n\r\n<h3>📄 Full Changelog</h3>\r\n<p><a href=\"https://github.com/TheBoredTeam/boring.notch/compare/v2.8-rc.0...v2.8-rc.1\">Compare v2.8-rc.0 → v2.8-rc.1</p>",
@@ -18,26 +38,6 @@
           "content_type": "application/x-apple-diskimage",
           "updated_at": "2026-09-25T09:42:51Z",
           "digest": "sha256:dd5d28dec45eb53b0f07a5a3a2ed5b9e6cc34ac22ab58908b503a4906dd62933"
-        }
-      ]
-    },
-    {
-      "tag_name": "nightly",
-      "name": "Latest Nightly",
-      "body": "Automated nightly build for dev. Commit: 403658b\n⚠️ This is an automated build of the latest development source. It may be unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!",
-      "draft": false,
-      "prerelease": true,
-      "created_at": "2026-09-25T10:05:43Z",
-      "updated_at": "2026-09-26T03:24:54Z",
-      "published_at": "2026-09-24T03:39:25Z",
-      "assets": [
-        {
-          "id": 589829990,
-          "name": "boringNotch-nightly.dmg",
-          "size": 10634775,
-          "content_type": "application/x-apple-diskimage",
-          "updated_at": "2026-09-26T03:24:54Z",
-          "digest": "sha256:45a6bc07a3c1e80d2bd3301fd2a201520ab082b11903ee90b57651bf7f7060ae"
         }
       ]
     },
