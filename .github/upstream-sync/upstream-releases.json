@@ -2,6 +2,26 @@
   "upstream_repository": "TheBoredTeam/boring.notch",
   "releases": [
     {
+      "tag_name": "nightly",
+      "name": "Latest Nightly",
+      "body": "Automated nightly build for dev. Commit: 8a3dfaf\n⚠️ This is an automated build of the latest development source. It may be unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!",
+      "draft": false,
+      "prerelease": true,
+      "created_at": "2026-10-11T17:22:00Z",
+      "updated_at": "2026-10-12T03:36:58Z",
+      "published_at": "2026-09-24T03:39:25Z",
+      "assets": [
+        {
+          "id": 632558098,
+          "name": "boringNotch-nightly.dmg",
+          "size": 10660175,
+          "content_type": "application/x-apple-diskimage",
+          "updated_at": "2026-10-12T03:36:58Z",
+          "digest": "sha256:1e83880fb458f7c9294cd349ae5cb2a7ce1d58a8523d47285f5d565eeddcf812"
+        }
+      ]
+    },
+    {
       "tag_name": "v2.8-rc.2",
       "name": "v2.8-rc.2 - Dapper Crab 🎩🦀",
       "body": "<h2>🛠️ Fixes &amp; Improvements</h2>\r\n<ul>\r\n    <li>Add a display setting that allows the notch to follow the active display</li>\r\n    <li>Fix artwork for streamed Apple Music tracks — @ludovickjankowski-web</li>\r\n    <li>Fix inline sneak peek when music live activity is off — @DavideSirico</li>\r\n    <li>Open Settings when app is reopened while running — @AcornElf</li>\r\n    <li>Improve album artwork processing efficiency — @ericrcwu001</li>\r\n    <li>Add option to hide the source app icon on album art — @SwastikTripathi</li>\r\n    <li>Migrate legacy non-notch heights to the supported minimum</li>\r\n    <li>Improved localization coverage and accuracy</li>\r\n    <li>Updated dependencies used by the project</li>\r\n</ul>\r\n\r\n<hr>\r\n<h2>👋 New Contributors</h2>\r\n<p>@AcornElf · @ludovickjankowski-web · @SwastikTripathi · @ericrcwu001 </p>\r\n\r\n<p>Thank you to everyone who contributed code, translations, testing, bug reports, and feedback to this release!</p>\r\n\r\n<h3>📄 Full Changelog</h3>\r\n<p><a href=\"https://github.com/TheBoredTeam/boring.notch/compare/v2.8-rc.1...v2.8-rc.2\">Compare v2.8-rc.1 → v2.8-rc.2</p>",
@@ -18,26 +38,6 @@
           "content_type": "application/x-apple-diskimage",
           "updated_at": "2026-10-10T02:13:07Z",
           "digest": "sha256:ea891b26642dcb766340716feb80df601f5fde7a154c5907d5f93a3695df110d"
-        }
-      ]
-    },
-    {
-      "tag_name": "nightly",
-      "name": "Latest Nightly",
-      "body": "Automated nightly build for dev. Commit: 7edf5c1\n⚠️ This is an automated build of the latest development source. It may be unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!",
-      "draft": false,
-      "prerelease": true,
-      "created_at": "2026-10-10T19:51:42Z",
-      "updated_at": "2026-10-11T03:28:38Z",
-      "published_at": "2026-09-24T03:39:25Z",
-      "assets": [
-        {
-          "id": 629662837,
-          "name": "boringNotch-nightly.dmg",
-          "size": 10658581,
-          "content_type": "application/x-apple-diskimage",
-          "updated_at": "2026-10-11T03:28:38Z",
-          "digest": "sha256:fdbb6c28054066f6aaae4e73f2235a2f9ee17c6fe08936a3c4a6a22638e01091"
         }
       ]
     },
