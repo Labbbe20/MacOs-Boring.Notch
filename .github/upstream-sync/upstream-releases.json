@@ -4,20 +4,20 @@
     {
       "tag_name": "nightly",
       "name": "Latest Nightly",
-      "body": "Automated nightly build for dev. Commit: ee36cc1\n⚠️ This is an automated build of the latest development source. It may be unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!",
+      "body": "Automated nightly build for dev. Commit: 26fcbcd\n⚠️ This is an automated build of the latest development source. It may be unstable, crash unexpectedly, or otherwise misbehave. Use at your own risk!",
       "draft": false,
       "prerelease": true,
-      "created_at": "2026-11-26T03:17:37Z",
-      "updated_at": "2026-11-27T03:18:42Z",
+      "created_at": "2026-11-27T03:18:46Z",
+      "updated_at": "2026-11-28T03:15:04Z",
       "published_at": "2026-09-24T03:39:25Z",
       "assets": [
         {
-          "id": 798773589,
+          "id": 803019661,
           "name": "boringNotch-nightly.dmg",
-          "size": 10671347,
+          "size": 10671342,
           "content_type": "application/x-apple-diskimage",
-          "updated_at": "2026-11-27T03:18:42Z",
-          "digest": "sha256:a26b5aa8014043d09aa5093b9a4d5d3c0a04b7d6778ddc2353f3098b5ec46b03"
+          "updated_at": "2026-11-28T03:15:04Z",
+          "digest": "sha256:87a1d9da6cf28a972f7b60195e41049aae921b6ad0eaf8e599d5b4181cb801fa"
         }
       ]
     },
